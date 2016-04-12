@@ -3,7 +3,6 @@ require_relative "./transformer.rb"
 
 class Login
   def initialize
-    @users = { "andreas" => "foobar"}
   end
 
   def prompt
@@ -12,7 +11,10 @@ class Login
     print "please enter your password:"
     password = gets.chomp
 
-    if check_login(name, password)
+    if User.new(FileStorage).valid?(name, password)
+    # just comment the line above and uncomment
+    # the line below to use a different implementation
+    # if User.new.valid?(name, password)
       show_menu
     else
       puts "Try again"
@@ -34,21 +36,18 @@ class Login
 
     case selection
     when "a"
-      Counter.count_words
+      puts Counter.count_words
     when "b"
-      Counter.count_characters
+      puts Counter.count_characters
     when "c"
-      Transformer.reverse
+      puts Transformer.reverse
     when "d"
-      Transformer.downcase
+      puts Transformer.downcase
     when "e"
-      Transformer.upcase
-    else
-      show_menu
+      puts Transformer.uppercase
     end
-  end
 
-  def check_login(name, password)
-    @users[name] == password
+    # always display the menu again
+    show_menu
   end
 end
