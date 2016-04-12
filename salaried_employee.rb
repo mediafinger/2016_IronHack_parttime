@@ -1,4 +1,6 @@
 class SalariedEmployee < Employee
+  include YearlyPayable
+
   def initialize(name, email, yearly_salary)
     @name = name
     @email = email
@@ -6,6 +8,6 @@ class SalariedEmployee < Employee
   end
 
   def calculate_salary
-    @yearly_salary / 52
+    calculate_with_yearly_salary
   end
 end

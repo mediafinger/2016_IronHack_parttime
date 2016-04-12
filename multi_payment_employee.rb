@@ -1,4 +1,6 @@
 class MultiPaymentEmployee < Employee
+  include YearlyPayable
+
   def initialize(name, email, yearly_salary, hourly_rate, hours_worked)
     @name = name
     @email = email
@@ -14,6 +16,6 @@ class MultiPaymentEmployee < Employee
       extra_hours_bonus = (@hours_worked - 40) * @hourly_rate
     end
 
-    @yearly_salary / 52 + extra_hours_bonus
+    calculate_with_yearly_salary + extra_hours_bonus
   end
 end
