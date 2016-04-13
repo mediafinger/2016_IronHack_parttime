@@ -12,6 +12,7 @@ _This is a Markdown file. It should be opened in a Markdown reader or in Atom (p
 #### General Packages
 - search for the package "atom-beautify" and install it
 - search for the package "sort-lines" and install it
+- search for the package "file-icons" and install it
 
 #### Linters
 - search for the package "linter" and install it

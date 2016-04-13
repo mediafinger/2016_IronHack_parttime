@@ -1,0 +1,39 @@
+# This file should be in your $HOME directory. Copy it to:
+# ~/.irbrc
+
+# if something fails, it will fail silently :-/
+# you will just notice the configuration or feature
+# and all following are not available
+
+$LOAD_PATH << '.'
+require 'rubygems'
+
+# This loads a local .irbrc file in the
+# directory you started your interactive ruby console
+#
+Dir.glob(".irbrc").each do |file|
+  load file
+end
+
+# to save your irb history, you will need the mentioned file
+#
+require 'irb/ext/save-history'
+IRB.conf[:SAVE_HISTORY] = 800
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+
+# autocomplete ruby commands, including variable names
+#
+require 'irb/completion'
+
+# use the awesome awesome_print for nicer output
+# the gem needs to be installed
+#
+require 'awesome_print'
+AwesomePrint.irb!
+
+# not sure if this is still the current way of doing this
+# as I stopped using pry (the gem needs to be installed)
+#
+# require 'pry'
+# Pry.start
+# exit
