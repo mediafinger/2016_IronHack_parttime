@@ -97,3 +97,37 @@ Forking is usually done when you want to use an OSS repo as the basis for your o
 ### Pull Requests
 
 Pull requests (PRs) might be the single most important feature GitHub offers. Opening a PR invites other coders to review the code, leave comments, suggest changes. When everyone is happy with the suggested changes, the PR can be merged. This is usually be done by another coder that merges the code changes (the branch) into the master branch.
+
+### Adding the SSH key
+
+To not type your GitHub credentials over and over again, you should create an SSH key, add it to the SSH agent and upload it to GitHub. The how is described in this turorial:
+
+<https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/>
+
+## Visualization
+
+### Beautiful sandbox
+
+<https://pcottle.github.io/learnGitBranching/?NODEMO>
+
+This demo has no real functionality but is great to visualize branching, merging and rebasing. Just use git commands like:
+
+* git branch new-name
+* git commit
+* git checkout master
+* git merge
+* git rebase
+
+### Advanced git documentation
+
+There are many git tutorials out there, but Atlassian's might be the best looking one. It explain many general git topics and also a few which are special to Bitbucket (a GitHub competitor by Atlassian).
+
+<https://www.atlassian.com/git/tutorials/advanced-overview>
+
+### gitx-dev
+
+This is a free OS X GUI (Graphical User Interface) for git. I want you to learn the git commands on the console! But some things work better in a GUI. I personally use this tool to only to check the history (like a nicer `git log + git diff`) and to handpick changes for commits. gitx allow it to select single lines of changes for commits, which makes it easier to use than `git add` on the command line.
+
+All other git commands I still use on the command line and I hope you will too, to learn them properly!
+
+<https://rowanj.github.io/gitx/>
