@@ -23,14 +23,20 @@ class WordChain
       end_word.chars.each_with_index do |char, i|
         break if chain_word == end_word # break will exit the iterator
 
-        temp_word = chain_word.dup # we have to use a dup / Duplicate of the String
-        temp_word[i] = char
-
-        if find_word(temp_word)
-          puts temp_word if temp_word != chain_word
-          chain_word = temp_word
-        end
+        chain_word = new_word(chain_word, char, i)
       end
+    end
+  end
+
+  def new_word(word, char, index)
+    temp_word = word.dup # we have to use a dup / Duplicate of the String
+    temp_word[index] = char
+
+    if find_word(temp_word)
+      puts temp_word if temp_word != word
+      temp_word
+    else
+      word
     end
   end
 
