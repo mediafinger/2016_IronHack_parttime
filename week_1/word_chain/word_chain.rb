@@ -15,6 +15,7 @@ class WordChain
     # This throws our error with an individual message
     # Try it out by calling: find_chain("cat", "tiger")
     fail ArgumentError, "Both words have to be of the same length" unless start_word.length == end_word.length
+    fail ArgumentError, "The second word is not in the dictionary" unless find_word(end_word)
 
     chain_word = start_word
     puts chain_word
