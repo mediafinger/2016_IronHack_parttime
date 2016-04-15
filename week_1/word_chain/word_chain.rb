@@ -5,6 +5,7 @@ require 'ruby-dictionary'
 # to define it in the same file, above the class
 #
 class ArgumentError < StandardError; end
+class NoWordPathFoundError < StandardError; end
 
 class WordChain
   def initialize(dictionary)
@@ -21,11 +22,15 @@ class WordChain
     puts chain_word
 
     while chain_word != end_word
+      temp_word = chain_word.dup
+
       end_word.chars.each_with_index do |char, i|
         break if chain_word == end_word # break will exit the iterator
 
         chain_word = new_word(chain_word, char, i)
       end
+
+      fail NoWordPathFoundError if temp_word == chain_word
     end
   end
 
