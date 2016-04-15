@@ -1,11 +1,21 @@
 require 'ruby-dictionary'
 
+# This defines our own error class - they ALWAYS inherit from StandardError
+# When this error is only used be the class below, it is best practice
+# to define it in the same file, above the class
+#
+class ArgumentError < StandardError; end
+
 class WordChain
   def initialize(dictionary)
     @dictionary = dictionary
   end
 
   def find_chain(start_word, end_word)
+    # This throws our error with an individual message
+    # Try it out by calling: find_chain("cat", "tiger")
+    fail ArgumentError, "Both words have to be of the same length" unless start_word.length == end_word.length
+
     chain_word = start_word
     puts chain_word
 
