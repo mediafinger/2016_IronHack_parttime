@@ -11,6 +11,8 @@ class WordChain
 
     while chain_word != end_word
       end_word.chars.each_with_index do |char, i|
+        break if chain_word == end_word # break will exit the iterator
+
         temp_word = chain_word.dup # we have to use a dup / Duplicate of the String
         temp_word[i] = char
 
