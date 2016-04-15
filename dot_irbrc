@@ -12,7 +12,7 @@ require 'rubygems'
 # directory you started your interactive ruby console
 #
 Dir.glob(".irbrc").each do |file|
-  load file
+  load file unless $PWD == $HOME
 end
 
 # to save your irb history, you will need the mentioned file
