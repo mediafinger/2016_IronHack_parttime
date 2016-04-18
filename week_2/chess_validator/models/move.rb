@@ -37,6 +37,10 @@ class Move
     row(@current_position) - row(@new_position)
   end
 
+  def row(position)
+    position.to_s[1].to_i
+  end
+
   private
 
   def same_column?
@@ -57,10 +61,6 @@ class Move
 
   def column(position)
     position.to_s[0]
-  end
-
-  def row(position)
-    position.to_s[1].to_i
   end
 
   def validate_position(position)
