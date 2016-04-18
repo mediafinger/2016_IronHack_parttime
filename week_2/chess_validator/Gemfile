@@ -1,3 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rspec', '~> 3.4'
+group :development, :test do
+  gem 'rspec', '~> 3.4'
+
+  # check the changes in Gemfile.lock after running 'bundle install'
+  # you  might be surprised by the amount of dependencies guard pulls in
+  # gems with so many dependencies are more likely to cause
+  # incompatability issues with your technology stack
+  #
+  gem 'guard'
+  gem 'guard-rspec'
+end
