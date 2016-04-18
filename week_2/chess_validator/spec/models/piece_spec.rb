@@ -1,6 +1,7 @@
 describe Piece do
   before do
-    @piece = Piece.new(:white, "a1")
+    @dummy_board = ""
+    @piece = Piece.new(:white, "a1", @dummy_board)
   end
 
   describe ".new" do
@@ -13,7 +14,7 @@ describe Piece do
     end
 
     it "sets the color to black" do
-      expect(Piece.new(:black, "f2")).to have_attributes(:color => :black)
+      expect(Piece.new(:black, "f2", @dummy_board)).to have_attributes(:color => :black)
     end
   end
 

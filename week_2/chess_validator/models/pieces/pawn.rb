@@ -4,13 +4,14 @@ class Pawn < Piece
     :white => 7,
   }.freeze
 
+  # TODO add direction check dependent on color
   def move_valid?(new_position)
     move = Move.new(@position, new_position)
     steps = move.column_steps.abs + move.row_steps.abs
 
-    # TODO allow diagonal move to strike oponent
     normal_step(move, steps) ||
       opening_step(move, steps) ||
+      step_to_strike(move, steps, new_position)
   end
 
   private
@@ -24,5 +25,16 @@ class Pawn < Piece
 
     move.vertical? && first_move && steps == 2
   end
+
+  def step_to_strike(move, steps, new_position)
+    # The only time any Piece makes a call to @board
+    # there must be a way to refactor this
+    #
+    piece_on_destination = @board.at(new_position)
+
+    move.diagonal? &&
+      !piece_on_destination.nil? &&
+      piece_on_destination.color != @color &&
+      steps == 2 # one row + one column
   end
 end

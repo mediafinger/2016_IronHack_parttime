@@ -3,9 +3,12 @@ class MethodNotImplementedError < StandardError; end
 class Piece
   attr_reader :color
 
-  def initialize(color, position)
+  def initialize(color, position, board)
     @color = color
     @position = position
+    # the Pawn is the only class that needs to access @board
+    # there might be a better way to keep the decoupling
+    @board = board
   end
 
   # this method should be implemented in

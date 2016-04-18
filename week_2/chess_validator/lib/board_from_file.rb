@@ -34,7 +34,7 @@ module BoardFromFile
         klass = acronym_to_piece_class(acronym)
         color = acronym_to_color(acronym)
 
-        board[position] = klass.new(color, position) unless klass.nil?
+        board[position] = klass.new(color, position, board) unless klass.nil?
       end
     end
 

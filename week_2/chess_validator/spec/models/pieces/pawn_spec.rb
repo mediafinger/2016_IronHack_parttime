@@ -1,8 +1,17 @@
 describe Pawn do
-  before do
+  # we do not need a real instance of Board to test the Pawn
+  # so we reate a mock object that always returns nil when
+  # a pawn call at(position)
+  let(:board_class) do
+    Class.new do
+      def initialize; end
+      def at(_pos); nil; end
+    end
   end
 
-  let(:pawn) { Pawn.new(:white, "f4") }
+  let(:board) { board_class.new }
+  let(:pawn) { Pawn.new(:white, "f4", board) }
+
   describe ".new" do
     it "instantiates a Pawn object" do
       expect(pawn.class).to eql Pawn
@@ -56,12 +65,28 @@ describe Pawn do
       end
     end
 
-      pending "changing the column is allowed to strike an oponent"
+    context "a diagonal move to a field with an opponent" do
+      # in this spec we stub a differnt result to board.at()
+      # remember that board is a mocked object
+      # only in this test it will return an opponent
+      #
+      # terms to look up: mock, stub, "expect to receive and return"
+      #
+      it "is allowed to strike an oponent" do
+        opponent = Pawn.new(:black, "e3", board)
+        expect(board).to receive(:at).and_return(opponent)
+
+        expect(pawn.move_valid?("e3")).to be true
+      end
     end
 
     it "more than 2 steps is invalid" do
       expect(pawn.move_valid?("f8")).to be false
     end
+
+    context "direction" do
+      pending "white pawns can only go ..."
+      pending "black pawns can only go ..."
     end
   end
 end
