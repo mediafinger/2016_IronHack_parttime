@@ -1,3 +1,6 @@
+# DEPRECATED
+# This logic is now part of the class ChessValidator
+
 # loading this file, will load all Ruby files of the app
 # check "app.rb" if you don't believe me!
 #

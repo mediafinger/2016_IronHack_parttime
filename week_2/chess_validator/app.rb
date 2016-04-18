@@ -1,3 +1,6 @@
+# DEPRECATED
+# The files are now required in chess_validator.rb
+
 # "#{Dir.pwd}/models/**/*.rb" finds all *.rb files of the project
 # - Dir.pwd the absolute path to the current directory
 # - the subfolder "models/"
