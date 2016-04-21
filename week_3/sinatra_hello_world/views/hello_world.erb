@@ -1,0 +1,17 @@
+<h3>Hello World!</h3>
+
+<div class="message">
+  <%= @message %>
+</div>
+
+<hr>
+
+<div class="text">
+  Enjoy your day!
+</div>
+
+<% if Date.today.tuesday? || Date.today.thursday? || Date.today.saturday? %>
+  <div class="post-scriptum">
+    PS: what a <b>great day</b> to learn Ruby!
+  </div>
+<% end %>

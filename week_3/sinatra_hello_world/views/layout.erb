@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Hello Sinatra!</title>
+    <meta charset="UTF-8">
+
+    <!-- include your CSS stylesheets or your .js scripts in the layout file's head section -->
+    <link rel="stylesheet" type="text/css" href="hello_world.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      --- Header ---
+    </div>
+
+    <!--
+      # yield is where the views are rendered
+      # so everything around yield will be the same for every view
+    -->
+    <%= yield %>
+
+    <div class="footer">
+      --- Footer ---
+    </div>
+  </body>
+
+</html>

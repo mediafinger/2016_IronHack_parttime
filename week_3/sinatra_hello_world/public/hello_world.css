@@ -1,0 +1,40 @@
+body, input, textarea, code, tt, pre {
+  font-family: sans-serif;
+  font-size: 1em;
+}
+
+div {
+  margin: 1em;
+}
+
+a {
+  color: #66a;
+  font-weight: bold;
+}
+
+.footer, .header {
+  font-family: monospace;
+  font-size: 0.9em;
+  margin-left: 0;
+}
+
+.header {
+  margin-bottom: 3em;
+}
+
+.footer {
+  margin-top: 3em;
+}
+
+.message {
+  font-size: 1.2em;
+}
+
+.text {
+  color: #2c8;
+}
+
+.post-scriptum {
+  font-size: 0.8em;
+  text-decoration: underline;
+}
