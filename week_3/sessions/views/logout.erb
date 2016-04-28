@@ -1,0 +1,12 @@
+<form action="/session" method="post">
+
+  <!-- Sinatra expects an input element with -->
+  <!-- name="_method"  value="delete" -->
+  <!-- to make a DELETE request -->
+  <!-- that the form still declares the method to be POST -->
+  <!-- is a bit confusing, but at the end correct, as the browser -->
+  <!-- will make a POST request and send extra information -->
+  <!-- which allow Sinatra to handle it as DELETE request -->
+
+  <button type="submit" name="_method" value="delete">Logout</button>
+</form>

@@ -1,0 +1,17 @@
+<p>
+  <strong>Session hash:</strong> <%= session.inspect %>
+</p>
+
+<!-- Here the instance variable @current_user-->
+<!-- which is passed from the action of the route "/" -->
+<!-- is used to display either the login or the logout link -->
+
+<p>
+  <% if @current_user %>
+    <%= @current_user %> is logged in.
+    <br>
+    <a href="/logout">Logout</a>
+  <% else %>
+    <a href="/login">Login</a>
+  <% end %>
+</p>
