@@ -1,0 +1,17 @@
+<h1>go wild!</h1>
+
+<form action="/calculate" method="POST">
+  <p>
+    <input type="number" placeholder="5" name="num_1">
+    <input type="number" placeholder="3" name="num_2">
+  </p>
+
+  <p>
+    <button type="submit" name="operation" value="+"> + </button>
+    <button type="submit" name="operation" value="*"> * </button>
+  <p>
+</form>
+
+<% if @result %>
+  <%= @num_1 %> <%= @operation %> <%= @num_2 %> = <%= @result %>
+<% end %>
