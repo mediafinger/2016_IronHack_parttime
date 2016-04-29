@@ -6,6 +6,8 @@ get "/" do
   erb :home
 end
 
+# iteration 2 with one form only:
+
 get "/calculator" do
   erb :calculator
 end
@@ -20,6 +22,10 @@ post "/calculate" do
   # display the result below the input form
   erb :calculator
 end
+
+
+# Below the iteration 1 solution with multiple forms:
+# it is no longer needed in iteration 2 and could be removed
 
 post "/calculate_add" do
   @summand_1 = params.fetch("summand_1", 0).to_i
