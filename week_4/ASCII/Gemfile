@@ -1,0 +1,8 @@
+source "https://rubygems.org"
+
+gem "artii"
+gem "sinatra"
+
+group :development, :test do
+  gem "sinatra-contrib"
+end
