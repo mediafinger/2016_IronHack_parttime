@@ -17,8 +17,10 @@ class MovieSearch
   end
 
   def posters
-    movies.map do |movie|
+    posters = movies.map do |movie|
       movie.poster
     end
+
+    posters.compact
   end
 end
