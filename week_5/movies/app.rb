@@ -5,8 +5,8 @@ require "sinatra"
 require_relative "models/movie_search.rb"
 
 get "/" do
-  search = MovieSearch.new("Hunger Games")
-  @posters = search.posters
+  search = MovieSearch.new("Star Wars")
+  @movies = search.movie_list
   erb :posters
 end
 

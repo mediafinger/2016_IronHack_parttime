@@ -16,11 +16,16 @@ class MovieSearch
     movies[0..@limit-1]
   end
 
-  def posters
-    posters = movies.map do |movie|
-      movie.poster
+  def movie_list
+    list = movies.map do |movie|
+      next unless movie.poster
+
+      {
+        poster: movie.poster,
+        year:   movie.year,
+      }
     end
 
-    posters.compact
+    list.compact
   end
 end

@@ -1,13 +1,13 @@
 require_relative "../spec_helper.rb"
 
 describe MovieSearch do
-  describe "#posters" do
+  describe "#movie_list" do
     let(:search) { MovieSearch.new("Hunger Games") }
 
     # RSpec Test double
     # https://www.relishapp.com/rspec/rspec-mocks/docs
-    let(:movie) { double("Movie", poster: "http://www.example.com") }
-    let(:movie_without_poster) { double("Movie", poster: nil) }
+    let(:movie) { double("Movie", poster: "http://www.example.com", year: 2000) }
+    let(:movie_without_poster) { double("Movie", poster: nil, year: 1999) }
 
     context "when all movies have posters" do
       let(:movies) {
@@ -21,7 +21,7 @@ describe MovieSearch do
         # https://www.relishapp.com/rspec/rspec-mocks/docs
         allow(search).to receive(:movies) { movies }
 
-        expect(search.posters.count).to eql(9)
+        expect(search.movie_list.count).to eql(9)
       end
     end
 
@@ -36,7 +36,7 @@ describe MovieSearch do
       it "returns an array of 8 elements" do
         allow(search).to receive(:movies) { movies }
 
-        expect(search.posters.count).to eql(8)
+        expect(search.movie_list.count).to eql(8)
       end
     end
   end
