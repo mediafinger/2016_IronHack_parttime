@@ -6,12 +6,12 @@ require_relative "models/movie_search.rb"
 require_relative "models/randomizer.rb"
 
 get "/" do
-  search = MovieSearch.new("Hunger Games")
+  erb :form
+end
+
+post "/" do
+  search = MovieSearch.new(params["search_term"])
   @movies = search.movie_list
   @year = Randomizer.new(@movies).year
   erb :posters
 end
-
-# post "/movie_search" do
-#
-# end
