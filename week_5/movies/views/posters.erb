@@ -1,3 +1,9 @@
+<h3>Which movie was released in the year <%= @year %> ?</h3>
+
 <% @movies.each do |movie| %>
-  <img src="<%= movie[:poster] %>" width="200">
+  <% if movie[:year] == @year %>
+    <img src="<%= movie[:poster] %>" width="200" onClick="alert('CORRECT')">
+  <% else %>
+    <img src="<%= movie[:poster] %>" width="200" onClick="alert('wrong!')">
+  <% end %>
 <% end %>
