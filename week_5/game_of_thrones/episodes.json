@@ -1,0 +1,53 @@
+[
+  {
+    "title": "Winter Is Coming",
+    "description": "Jon Arryn, the Hand of the King, is dead. King Robert Baratheon plans to ask his oldest friend, Eddard Stark, to take Jon's place. Across the sea, Viserys Targaryen plans to wed his sister to a nomadic warlord in exchange for an army.",
+    "rating": 8.5,
+    "episode_number": 1
+  }, {
+    "title": "Cripples, Bastards, and Broken Things",
+    "description": "Eddard investigates Jon Arryn's murder. Jon befriends Samwell Tarly, a coward who has come to join the Night's Watch.",
+    "rating": 8.1,
+    "episode_number": 4
+  }, {
+    "title": "The Kingsroad",
+    "description": "While Bran recovers from his fall, Ned takes only his daughters to Kings Landing. Jon Snow goes with his uncle Benjen to The Wall. Tyrion joins them.",
+    "rating": 8.2,
+    "episode_number": 2
+  }, {
+    "title": "A Golden Crown",
+    "description": "While recovering from his battle with Jamie, Eddard is forced to run the kingdom while Robert goes hunting. Tyrion demands a trial by combat for his freedom. Viserys is losing his patience with Drogo.",
+    "rating": 8.5,
+    "episode_number": 6
+  }, {
+    "title": "Fire and Blood",
+    "description": "With Ned dead, Robb vows to get revenge on the Lannisters. Jon must officially decide if his place is with Robb or the Night's Watch. Daenerys says her final goodbye to Drogo.",
+    "rating": 8.8,
+    "episode_number": 10
+  }, {
+    "title": "The Wolf and the Lion",
+    "description": "Catelyn has captured Tyrion and plans to bring him to her sister, Lysa Arryn, at The Vale, to be tried for his, supposed, crimes against Bran. Robert plans to have Daenerys killed, but Eddard refuses to be a part of it and quits.",
+    "rating": 8.4,
+    "episode_number": 5
+  }, {
+    "title": "Baelor",
+    "description": "Robb goes to war against the Lannisters. Jon finds himself struggling on deciding if his place is with Robb or the Night's Watch. Drogo has fallen ill from a fresh battle wound. Daenerys is desperate to save him.",
+    "rating": 8.9,
+    "episode_number": 9
+  }, {
+    "title": "You Win or You Die",
+    "description": "Robert has been injured while hunting and is dying. Jon and the others finally take their vows to the Night's Watch. A man, sent by Robert, is captured for trying to poison Daenerys. Furious, Drogo vows to attack the Seven Kingdoms.",
+    "rating": 8.6,
+    "episode_number": 7
+  }, {
+    "title": "Lord Snow",
+    "description": "Lord Stark and his daughters arrive at King's Landing to discover the intrigues of the king's realm.",
+    "rating": 8.1,
+    "episode_number": 3
+  }, {
+    "title": "The Pointy End",
+    "description": "Eddard and his men are betrayed and captured by the Lannisters. When word reaches Robb, he plans to go to war to rescue them. The White Walkers attack The Wall. Tyrion returns to his father with some new friends.",
+    "rating": 8.3,
+    "episode_number": 8
+  }
+]
