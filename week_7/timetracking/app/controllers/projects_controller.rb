@@ -12,4 +12,8 @@ class ProjectsController < ApplicationController
 
     render "layouts/404"
   end
+
+  def new
+    @project = Project.new
+  end
 end

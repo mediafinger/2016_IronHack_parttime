@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/contact" => "site#contact"
 
   get "/projects" => "projects#index"
+  get "/projects/new" => "projects#new"
   get "/projects/:id" => "projects#show"
 
   root "site#home"
