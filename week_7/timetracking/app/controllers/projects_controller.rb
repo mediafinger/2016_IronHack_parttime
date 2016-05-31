@@ -19,7 +19,13 @@ class ProjectsController < ApplicationController
 
   def create
     project = Project.new(project_params)
-    project.save
+    project.save!
     redirect_to projects_path
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:description, :name)
   end
 end
