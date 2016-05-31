@@ -14,4 +14,13 @@ class Project < ActiveRecord::Base
 
     projects.destroy_all
   end
+
+  def total_hours_in_month(month, year)
+    # uses all time_entries of the project
+    # of the given month and year
+
+    # where the magic happens
+
+    # returns hours worked
+  end
 end

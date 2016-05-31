@@ -3,3 +3,9 @@
 <p>
   <%= project_name(@project) %>
 </p>
+
+<!-- Exercise: make this work -->
+<p>
+  hours worked in this month:
+  <%= @project.total_hours_in_month(Date.today.month, Date.today.year) %>
+</p>
