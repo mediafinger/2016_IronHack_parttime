@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  has_many :time_entries
+  has_many :time_entries, dependent: :destroy
 
   ITEMS_PER_PAGE = 3
 
