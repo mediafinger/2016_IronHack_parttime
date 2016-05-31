@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  has_many :time_entries
+
   ITEMS_PER_PAGE = 3
 
   validates :name, length: { minimum: 3 }
