@@ -5,6 +5,6 @@ class EntriesController < ApplicationController
     @project = Project.find(project_id)
     @entries = @project.time_entries
 
-    render json: @entries # for quick testing only
+    render :index
   end
 end

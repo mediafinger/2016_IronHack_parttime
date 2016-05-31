@@ -1,0 +1,12 @@
+<h1><%= @project.name %></h1>
+<ul>
+  <% @entries.each do |entry| %>
+    <li>
+      [<%= entry.id %>]
+      <%= entry.hours %> h
+      <%= entry.minutes %> m -
+      <%= formatted_date(entry.date) %>
+      :: <%= entry.comments %>
+    </li>
+  <% end %>
+</ul>
