@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+if Rails.env.development?
+  Project.destroy_all
+
+  Project.create!(
+    [
+      { name: "TimeTracker", description: "a Rails app" },
+      { name: "IronHack", description: "bla bla bla" },
+      { name: "P123", description: "???" },
+      { name: "Barcelona", description: "city, Spain" },
+    ]
+  )
+end
