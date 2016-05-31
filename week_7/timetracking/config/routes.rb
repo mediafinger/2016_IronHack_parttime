@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get "/projects" => "projects#index"
   get "/projects/new" => "projects#new"
   get "/projects/:id" => "projects#show"
-
   post "/projects" => "projects#create"
+
+  get "/projects/:id/entries" => "entries#index"
 
   root "site#home"
 
