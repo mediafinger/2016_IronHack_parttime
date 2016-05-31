@@ -1,0 +1,15 @@
+form {
+  border: 2px solid black;
+
+  article {
+    margin: 1em 0 0 1em;
+  }
+
+  input[type=submit] {
+    font-size: 2em;
+  }
+}
+
+form.new_project {
+  // specific to this class
+}
