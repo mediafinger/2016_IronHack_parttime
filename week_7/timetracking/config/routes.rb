@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/projects/new" => "projects#new"
   get "/projects/:id" => "projects#show"
 
+  post "/projects" => "projects#create"
+
   root "site#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
