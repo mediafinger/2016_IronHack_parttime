@@ -1,0 +1,18 @@
+<%= form_for [@project, @entry] do |f| %>
+  <article>
+    <%= f.label :hours %>
+    <%= f.number_field :hours %>
+  </article>
+
+  <article>
+    <%= f.label :minutes %>
+    <%= f.number_field :minutes %>
+  </article>
+
+  <article>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </article>
+
+  <%= f.submit "Create new Time Entry" %>
+<% end %>
