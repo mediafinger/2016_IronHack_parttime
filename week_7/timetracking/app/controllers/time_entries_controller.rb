@@ -18,6 +18,24 @@ class TimeEntriesController < ApplicationController
   end
 
   def create
-    render json: params
+    @project = Project.find(params[:project_id])
+
+    @entry = @project.time_entries.new(entry_params)
+    # alternative way:
+    # create_params = entry_params.merge(project_id: @project.id)
+    # @entry = TimeEntry.new(create_params)
+
+    if @entry.save
+      redirect_to project_time_entries_path(@project)
+    else
+      @errors = @entry.errors.full_messages
+      render :new
+    end
+  end
+
+  private
+
+  def entry_params
+    params.require(:time_entry).permit(:hours, :minutes, :date)
   end
 end
