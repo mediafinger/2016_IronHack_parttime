@@ -1,3 +1,11 @@
+<% if @errors.present? %>
+  <section class="error">
+    <% @errors.each do |error| %>
+      <p class="error"><%= error %></p>
+    <% end %>
+  </section>
+<% end %>
+
 <%= form_for [@project, @entry] do |f| %>
   <article>
     <%= f.label :hours %>
