@@ -27,8 +27,10 @@ class TimeEntriesController < ApplicationController
     # @entry = TimeEntry.new(create_params)
 
     if @entry.save
+      flash[:notice] = "Entry created successfully"
       redirect_to project_time_entries_path(@project)
     else
+      flash.now[:alert] = "Entry could not be created"
       @errors = @entry.errors.full_messages
       render :new
     end
@@ -56,6 +58,7 @@ class TimeEntriesController < ApplicationController
     @entry = @project.time_entries.find(params[:id])
 
     @entry.destroy
+    flash[:notice] = "Entry #{@entry.id} deleted."
 
     redirect_to project_time_entries_path(@project)
   end

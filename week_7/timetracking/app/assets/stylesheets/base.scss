@@ -11,3 +11,16 @@ body {
 .error  {
   color: red;
 }
+
+.flash {
+  border: 1px solid white;
+  padding: 0.5em;
+}
+
+.notice {
+  background-color: #5fdf1b;
+}
+
+.alert {
+  background-color: #df501b;
+}
