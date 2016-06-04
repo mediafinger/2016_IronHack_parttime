@@ -1,0 +1,28 @@
+<% if @errors.present? %>
+  <section class="error">
+    <% @errors.each do |error| %>
+      <p class="error"><%= error %></p>
+    <% end %>
+  </section>
+<% end %>
+
+<%= form_for [@project, @entry] do |f| %>
+  <article>
+    <%= f.label :hours %>
+    <%= f.number_field :hours %>
+  </article>
+
+  <article>
+    <%= f.label :minutes %>
+    <%= f.number_field :minutes %>
+  </article>
+
+  <article>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </article>
+
+  <%= f.submit "Update this Time Entry" %>
+<% end %>
+
+<%= link_to "Cancel", project_time_entries_path(@project) %>

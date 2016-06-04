@@ -33,6 +33,15 @@ class TimeEntriesController < ApplicationController
     end
   end
 
+  def edit
+    @project = Project.find(params[:project_id])
+    @entry = @project.time_entries.find(params[:id])
+  end
+
+  def update
+    render json: params
+  end
+
   private
 
   def entry_params
