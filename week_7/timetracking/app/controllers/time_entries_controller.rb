@@ -1,30 +1,19 @@
 class TimeEntriesController < ApplicationController
+  before_action :set_project, :set_time_entries # run before any action
+  before_action :set_entry, only: [:show, :edit, :update, :destroy]
+
   def index
-    project_id = params[:project_id]
-
-    @project = Project.find(project_id)
-    @entries = @project.time_entries
-
-    render :index
   end
 
   def show
-    @project = Project.find(params[:project_id])
-    @entry = @project.time_entries.find(params[:id])
   end
 
   def new
-    @project = Project.find(params[:project_id])
-    @entry = TimeEntry.new(project_id: @project.id) # == @project.time_entries.new
+    @entry = @entries.new
   end
 
   def create
-    @project = Project.find(params[:project_id])
-
-    @entry = @project.time_entries.new(entry_params)
-    # alternative way:
-    # create_params = entry_params.merge(project_id: @project.id)
-    # @entry = TimeEntry.new(create_params)
+    @entry = @entries.new(entry_params)
 
     if @entry.save
       flash[:notice] = "Entry created successfully"
@@ -37,14 +26,9 @@ class TimeEntriesController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:project_id])
-    @entry = @project.time_entries.find(params[:id])
   end
 
   def update
-    @project = Project.find(params[:project_id])
-    @entry = @project.time_entries.find(params[:id])
-
     if @entry.update(entry_params)
       redirect_to project_time_entries_path(@project)
     else
@@ -54,9 +38,6 @@ class TimeEntriesController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:project_id])
-    @entry = @project.time_entries.find(params[:id])
-
     @entry.destroy
     flash[:notice] = "Entry #{@entry.id} deleted."
 
@@ -64,6 +45,18 @@ class TimeEntriesController < ApplicationController
   end
 
   private
+
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
+
+  def set_time_entries
+    @entries = @project.time_entries
+  end
+
+  def set_entry
+    @entry = @entries.find(params[:id])
+  end
 
   def entry_params
     params.require(:time_entry).permit(:hours, :minutes, :date)
