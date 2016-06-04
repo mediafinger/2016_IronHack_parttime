@@ -2,7 +2,7 @@
 <ul>
   <% @entries.each do |entry| %>
     <li>
-      [<%= entry.id %>]
+      [<%= link_to entry.id, edit_project_time_entry_path(@project, entry) %>]
       <%= entry.hours %> h
       <%= entry.minutes %> m -
       <%= formatted_date(entry.date) %>
