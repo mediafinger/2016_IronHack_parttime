@@ -1,12 +1,12 @@
-<% if @errors.present? %>
+<% if errors.present? %>
   <section class="error">
-    <% @errors.each do |error| %>
+    <% errors.each do |error| %>
       <p class="error"><%= error %></p>
     <% end %>
   </section>
 <% end %>
 
-<%= form_for [@project, @entry] do |f| %>
+<%= form_for [project, entry] do |f| %>
   <article>
     <%= f.label :hours %>
     <%= f.number_field :hours %>
@@ -25,4 +25,4 @@
   <%= f.submit "Save changes" %>
 <% end %>
 
-<%= link_to "Cancel", project_time_entries_path(@project) %>
+<%= link_to "Cancel", project_time_entries_path(project) %>
