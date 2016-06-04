@@ -16,11 +16,13 @@ class Project < ActiveRecord::Base
   end
 
   def total_hours_in_month(month, year)
-    # uses all time_entries of the project
-    # of the given month and year
+    from = "#{year}-#{month}-01"
+    to = Date.parse(from).next_month.iso8601
 
-    # where the magic happens
+    entries = time_entries.where(date: from...to).pluck(:hours, :minutes)
 
-    # returns hours worked
+    entries.reduce(0.0) do |sum, entry|
+      sum += entry[0] + entry[1].to_f / 60
+    end
   end
 end
