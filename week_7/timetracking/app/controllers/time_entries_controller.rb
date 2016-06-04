@@ -9,7 +9,8 @@ class TimeEntriesController < ApplicationController
   end
 
   def show
-    render json: params
+    @project = Project.find(params[:project_id])
+    @entry = @project.time_entries.find(params[:id])
   end
 
   def new
