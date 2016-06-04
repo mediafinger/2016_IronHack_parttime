@@ -3,16 +3,13 @@ module ApplicationHelper
     date.strftime("%d %b %Y")
   end
 
-  # TODO exercise: refactor method, keep it DRY
   def flash_message
-    if flash[:alert]
-      content_tag :div, class: "flash alert" do
-        flash[:alert]
-      end
-    elsif flash[:notice]
-      content_tag :div, class: "flash notice" do
-        flash[:notice]
+    messages = flash.map do |type, message|
+      content_tag :div, class: "flash #{type}" do
+        message
       end
     end
+
+    messages.join("\n").html_safe
   end
 end
