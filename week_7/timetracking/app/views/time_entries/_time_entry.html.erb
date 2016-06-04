@@ -3,4 +3,5 @@
 <%= entry.minutes %> m -
 <%= formatted_date(entry.date) %>
 :: <%= entry.comments %>
-:: <%= link_to "Show", project_time_entry_path(project, entry) %>
+| <%= link_to "Show", project_time_entry_path(project, entry) %>
+| <%= link_to "Delete", project_time_entry_path(project, entry), method: :delete, data: { confirm: "Are you really sure?"} %>

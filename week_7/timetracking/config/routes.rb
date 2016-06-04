@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "/contact" => "site#contact"
 
   resources :projects, only: [:index, :new, :show, :create] do
-    resources :time_entries, only: [:index, :new, :show, :create, :edit, :update]
+    resources :time_entries, only: [:index, :new, :show, :create, :edit, :update, :destroy]
   end
 
   # Routes replaced by resources helper method
