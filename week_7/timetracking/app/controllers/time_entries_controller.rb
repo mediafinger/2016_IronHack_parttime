@@ -39,7 +39,15 @@ class TimeEntriesController < ApplicationController
   end
 
   def update
-    render json: params
+    @project = Project.find(params[:project_id])
+    @entry = @project.time_entries.find(params[:id])
+
+    if @entry.update(entry_params)
+      redirect_to project_time_entries_path(@project)
+    else
+      @errors = @entry.errors.full_messages
+      render :edit
+    end
   end
 
   private
