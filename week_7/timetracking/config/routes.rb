@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :time_entries, only: [:index, :new, :show, :create, :edit, :update, :destroy]
   end
 
+  resources :users, only: [:new, :create]
+
   root "site#home"
 end
