@@ -15,10 +15,12 @@ if Rails.env.development?
 
   Project.create!(
     [
-      { name: "TimeTracker", description: "a Rails app" },
-      { name: "IronHack", description: "bla bla bla" },
-      { name: "P123", description: "???" },
-      { name: "Barcelona", description: "city, Spain" },
+      { user: andy, name: "TimeTracker", description: "a Rails app" },
+      { user: andy, name: "IronHack", description: "bla bla bla" },
+      { user: andy, name: "P123", description: "???" },
+      { user: andy, name: "Barcelona", description: "city, Spain" },
+      { user: toni, name: "Airport", description: "work" },
+      { user: toni, name: "Sant Cugat", description: "family home" },
     ]
   )
 

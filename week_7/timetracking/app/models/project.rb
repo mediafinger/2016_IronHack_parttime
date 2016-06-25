@@ -1,9 +1,11 @@
 class Project < ActiveRecord::Base
+  belongs_to :user
   has_many :time_entries, dependent: :destroy
 
   ITEMS_PER_PAGE = 3
 
   validates :name, length: { minimum: 3 }
+  validates :user, presence: true
 
   def self.latest
     Project.order(created_at: :desc).limit(ITEMS_PER_PAGE)
