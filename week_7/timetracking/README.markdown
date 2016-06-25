@@ -42,17 +42,25 @@ Ensure that Users can only create, update and destroy TimeEntries for their own 
 
 ### 1.
 
-Add a `UsersController#index` action that lists all Projects of the current_user
+Refactor the `ProjectController#index` action so it lists all Projects of the current_user
+
+If current_user is not present, list all Projects.
+
+### 2.
+
+Refactor the `ProjectController#show` action so it only returns a Project if it is owned by the current_user
+
+If current_user is not the owner, redirect to projects_path and display a flash error message.
 
 If current_user is not present, redirect to the login page.
 
-### 2.
+### 3.
 
 Add a `UsersController#show` action that shows how many hours the current_user worked in total (summed up TimeEntries).
 
 For this associate the TimeEntries with the User (through Projects).
 
-## 3.
+## 4.
 
 Add the attribute _role_ to the users table, ensure it has the default value _'user'_.  
 In the User model _validate that role either has the value 'user' or 'admin'_.  
