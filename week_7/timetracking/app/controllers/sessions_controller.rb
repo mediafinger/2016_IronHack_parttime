@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   # GET login form
   def new
+    session[:return_to] ||= request.referer
   end
 
   # POST to login
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "Welcome back #{user.name}!"
-      redirect_to projects_path
+      redirect_to session.delete(:return_to) || projects_path
     else
       flash.now[:alert] = "Login failed, please try again."
       render :new
