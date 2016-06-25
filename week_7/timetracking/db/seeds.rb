@@ -7,7 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 if Rails.env.development?
+  User.destroy_all
   Project.destroy_all # this destroys also all TimeEntries, as they depent on the Projects
+
+  andy = User.create!(name: "Andy", email: "andy@example.com", password: "foobar")
+  toni = User.create!(name: "Toni", email: "toni@example.com", password: "foobar")
 
   Project.create!(
     [
