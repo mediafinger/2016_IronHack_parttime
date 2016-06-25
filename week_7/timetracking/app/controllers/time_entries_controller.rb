@@ -1,4 +1,9 @@
 class TimeEntriesController < ApplicationController
+  before_action :authenticate!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_project_for_current_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :index]
+  before_action :set_time_entries # run before any action
+
   before_action :set_project, :set_time_entries # run before any action
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
@@ -48,6 +53,10 @@ class TimeEntriesController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+  end
+
+  def set_project_for_current_user
+    @project = current_user.projects.find(params[:project_id])
   end
 
   def set_time_entries
