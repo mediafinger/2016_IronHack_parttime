@@ -1,0 +1,8 @@
+<div class="session-info">
+  <% if current_user.present? %>
+    <%= current_user.name %>
+    <%= link_to "logout", logout_path, method: :delete %>
+  <% else %>
+    <%= link_to "login", login_path %>
+  <% end %>
+</div>

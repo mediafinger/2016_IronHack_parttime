@@ -14,6 +14,7 @@ body {
 
 .flash {
   border: 1px solid white;
+  margin: 0.5em;
   padding: 0.5em;
 }
 
@@ -23,4 +24,9 @@ body {
 
 .alert {
   background-color: #df501b;
+}
+
+session-info {
+  text-align: right;
+  margin-bottom: 1em;
 }
