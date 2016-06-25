@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate!, only: [:new, :create]
+
   def index
     @projects = Project.latest
   end
