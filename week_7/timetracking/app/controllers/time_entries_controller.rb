@@ -3,8 +3,6 @@ class TimeEntriesController < ApplicationController
   before_action :set_project_for_current_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_project, only: [:show, :index]
   before_action :set_time_entries # run before any action
-
-  before_action :set_project, :set_time_entries # run before any action
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   def index
