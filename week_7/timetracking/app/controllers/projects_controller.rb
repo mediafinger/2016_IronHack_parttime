@@ -3,6 +3,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.latest
+    @projects = Project.order(updated_at: :desc).page(params[:page])
   end
 
   def show
