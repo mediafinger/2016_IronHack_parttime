@@ -14,3 +14,14 @@
   <%= paginate @projects %>
 </p>
 
+<% if cookies.encrypted[:projects_page] %>
+  <p>
+    <%= link_to "Click me to jump to your highest visited page", page_projects_path(page: cookies.encrypted[:projects_page]) %>
+  </p>
+<% end %>
+
+<% if cookies.encrypted[:projects_page_at] && cookies.encrypted[:projects_page_at] < @projects.first.updated_at %>
+  <p>
+    <%= link_to "WARNING! NEW Projects available", projects_path %>
+  </p>
+<% end %>

@@ -2,7 +2,8 @@ class ProjectsController < ApplicationController
   before_action :authenticate!, only: [:new, :create]
 
   def index
-    @projects = Project.latest
+    remember_highest_visited_page
+
     @projects = Project.order(updated_at: :desc).page(params[:page])
   end
 
@@ -13,7 +14,7 @@ class ProjectsController < ApplicationController
     # mention the controller / model / params
     log_error(message: "Project not found", status: "404", params: params)
 
-    render "layouts/404"
+    render "layouts/404", status: 404
   end
 
   def new
@@ -27,6 +28,17 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def remember_highest_visited_page
+    cookies.encrypted[:projects_page_at] = Time.now.utc.iso8601
+
+    if Date.today > Date.parse(cookies.encrypted[:projects_page_at])
+      cookies.encrypted[:projects_page].delete
+      return 0
+    else
+      cookies.encrypted[:projects_page] = [cookies.encrypted[:projects_page], params[:page]].compact.max
+    end
+  end
 
   def project_params
     params.require(:project).permit(:description, :name)
